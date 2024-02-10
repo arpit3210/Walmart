@@ -12,29 +12,27 @@ type Props = {
 
 const GridOption = ({ title, className, image }: Props) => {
     return (
-        <Link  href= {
+        <Link href={
             {
-                pathname: "/",
-                query: {q: title}
+                pathname: "/search",
+                query: { q: title }
             }
-        } 
-        
-        className={cn(" grid-option relative", className)}>
+        }
 
-<h2>  {title}</h2>
+            className={cn(" grid-option relative", className)}>
 
+            <h2>  {title}</h2>
 
-
-      {
-        image &&  (
-            <Image
-            src={image}
-            alt={title}
-            layout="fill"
-            className='object-cover opacity-20 rounded-lg shadow-md'
-            ></Image>
-        )
-      }      
+            {
+                image && (
+                    <Image
+                        src={image}
+                        alt={title}
+                        layout="fill"
+                        className='object-cover opacity-20 rounded-lg shadow-md'
+                    ></Image>
+                )
+            }
         </Link>
     )
 }

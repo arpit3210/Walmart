@@ -5,7 +5,7 @@ export default function Home() {
   return (
     <main className="">
 
-<div className="grid">
+<div className="grid  grid-cols-2  grid-flow-row-dense md:grid-cols-4   m-6 gap-6">
   
 <GridOption 
 title="Sweet gifts for less"

@@ -1,10 +1,27 @@
+"use client"
+
+
+
 import { Button } from '@/components/ui/button'
+
 import React from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
 import { Grid2X2, Heart, LayoutGrid, Search, ShoppingCart, User } from 'lucide-react'
+import { useRouter } from 'next/navigation'
 
 const Header = () => {
+const router = useRouter();
+
+const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+
+
+    const input = e.currentTarget.input.value;
+    router.push( `/search?q=${encodeURIComponent(input)}`);
+    console.log(input);
+}
+
     return (
         <header className='flex flex-col md:flex-row  bg-blue-500 items-center px-10 py-2 space-x-5'>
 
@@ -23,10 +40,10 @@ const Header = () => {
             {/* https://www.youtube.com/watch?v=LWT1LGMmzNk */}
 
 
-      <form className='flex items-center px-5  bg-white  rounded-full w-full flex-1' action="">
-                <input className='flex-1 rounded-full placeholder:text-sm' type="text" placeholder="Search Everything..."  />
+      <form onSubmit={ handleSubmit} className='flex items-center pl-5  bg-white  rounded-full w-full flex-1' action="">
+                <input className='flex-1 outline-white rounded-full placeholder:text-sm  text-black' name='input' type="text" placeholder="Search Everything..."  />
               
-                    <button type='submit'> <Search className='rounded-full h-10  px-2 w-10 bg-yellow-400  cursor-pointer'></Search> </button>
+                    <button type='submit'> <Search className='rounded-full h-10  px-2 w-10 bg-yellow-400 text-white cursor-pointer'></Search> </button>
 
             </form>
      
@@ -62,7 +79,7 @@ const Header = () => {
 </div>
     </Link>
 
-    <Link href={"/"} className=' flex text-white font-bold items-center space-x-2  text-sm' >
+    <Link href={"/basket"} className=' flex text-white font-bold items-center space-x-2  text-sm' >
 <ShoppingCart size={20}/>
 <div>
 <p className='text-xs font-extralight'>No Items</p>

@@ -1,6 +1,16 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+
+@layer components {
+  .grid-option {
+    @apply rounded-md p-5 h-full col-span-1 hover:opacity-75 border-white border-2 hover:border-blue-500
+
+  }
+}
+
  
 @layer base {
   :root {

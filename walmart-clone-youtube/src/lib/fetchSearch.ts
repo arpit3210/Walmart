@@ -1,19 +1,20 @@
 import { Result } from "../../typings/searchTypings";
 
-async function fetchSearch(serachTerm: string) {
+function fetchSearch(serachTerm: string) {
     const username = process.env.OXYLABS_USERNAME;
     const password = process.env.OXYLABS_PASSWORD;
     const newUrl = new URL(`https://www.walmart.com/search?q=${serachTerm}`);
 
     const body = {
         source: 'universal_ecommerce',
-        url: 'https://www.walmart.com/ip/Adidas-Moves-Body-Spray-for-Men-2-5-Oz/710726462',
+        url: newUrl.toString(),
+        // url: 'https://www.walmart.com/ip/Adidas-Moves-Body-Spray-for-Men-2-5-Oz/710726462',
         geo_location: 'United States',
         parse: true
       };
 
 
-      const response = await fetch('https://realtime.oxylabs.io/v1/queries', {
+      const response = fetch('https://realtime.oxylabs.io/v1/queries', {
         method: 'post',
         body: JSON.stringify(body),
         headers: {

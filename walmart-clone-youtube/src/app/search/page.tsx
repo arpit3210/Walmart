@@ -1,4 +1,5 @@
 import fetchSearch from "@/lib/fetchSearch";
+import Product from "../../../components/Product";
 
 type Props = {
     searchParams: {
@@ -25,7 +26,10 @@ async function SearchPage({ searchParams: { q } }: Props) {
                 {results?.content.organic && results?.content.organic.map((product) => (
 
                     <li key={product.product_id}>
-                        <p>{product.title}</p>
+                        {/* <p>{product.title}</p> */}
+
+<Product product={product}/>
+
                     </li>
                 ))}
             </ul>

@@ -20,7 +20,11 @@ function fetchSearch(serachTerm: string) {
         headers: {
           'Content-Type': 'application/json',
           'Authorization': 'Basic ' + Buffer.from(`${username}:${password}`).toString('base64'),
-        }
+        },
+// Refetch every hour
+        next: {
+          revalidate: 60 * 60, 
+        },
       }).then((res) => res.json())
       .then(data =>
         {

@@ -21,6 +21,7 @@ import {
   TableRow,
 } from "@/components/ui/table"
 import { spec } from "node:test/reporters";
+import AddToCard from "../../../components/AddToCard";
 
 
 
@@ -120,6 +121,10 @@ async function ProductPage({ searchParams: { url } }: Props) {
         <p className="text-2xl font-bold mt-2">
           {product?.currency} {product.price}
         </p>
+
+
+{/* Add to Card Button  */}
+<AddToCard product={product}></AddToCard>
 
 
 

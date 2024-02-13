@@ -36,10 +36,12 @@ export interface Product {
     price_strikethrough?: number;
 }
 
+
 export interface Meta {
     sku: string;
     gtin: string;
 }
+
 
 export interface Rating {
     count: number;

@@ -3,7 +3,7 @@ import GridOption from "../../components/GridOption";
 
 export default function Home() {
   return (
-    <main className="">
+    <main className="flex-1">
 
 <div className="grid  grid-cols-2  grid-flow-row-dense md:grid-cols-4   m-6 gap-6">
   

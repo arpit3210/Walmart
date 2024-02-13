@@ -14,8 +14,8 @@ const RemoveFromCart = ({ product }: { product: Product }) => {
 
 
     const handleRemove = () => {
-        console.log("removing from cart", product.meta.sku);
         removeFromCard(product);
+        console.log("removing from cart", product.meta.sku);
     };
 
     return (

@@ -1,12 +1,13 @@
 import { create } from 'zustand'
 import { devtools, persist } from 'zustand/middleware'
-import AddToCard from './components/AddToCard';
+// import AddToCard from './components/AddToCard';
+import { Product } from './typings/productTyping';
 
-interface Product {
-    id: number;
-    name: string;
-    price: number;
-}
+// interface Product {
+//     id: number;
+//     name: string;
+//     price: number;
+// }
 
 interface CardState {
     cart: Product[];
@@ -29,18 +30,12 @@ interface CardState {
                 removeFromCart: (product) => {
                     const productToRemove = get().cart.findIndex((p) => p.meta.sku === product.meta.sku);
 
-
-
                     set((state) => {
-
                         const newCart = [...state.cart];
 
                         newCart.splice(productToRemove, 1);
                         return { cart: newCart };
                     })
-
-
-
                 },
             }),
             {
